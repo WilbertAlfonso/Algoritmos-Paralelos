@@ -1,0 +1,117 @@
+==5371== Memcheck, a memory error detector
+==5371== Copyright (C) 2002-2015, and GNU GPL'd, by Julian Seward et al.
+==5371== Using Valgrind-3.11.0 and LibVEX; rerun with -h for copyright info
+==5371== Command: /usr/bin/which Programa2-Normal
+==5371== Parent PID: 2592
+==5371== 
+--5371-- 
+--5371-- Valgrind options:
+--5371--    -v
+--5371--    --tool=memcheck
+--5371--    --leak-check=full
+--5371--    --num-callers=40
+--5371--    --log-file=valgrind1.log
+--5371-- Contents of /proc/version:
+--5371--   Linux version 4.4.0-21-generic (buildd@lgw01-21) (gcc version 5.3.1 20160413 (Ubuntu 5.3.1-14ubuntu2) ) #37-Ubuntu SMP Mon Apr 18 18:33:37 UTC 2016
+--5371-- 
+--5371-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3-avx
+--5371-- Page sizes: currently 4096, max supported 4096
+--5371-- Valgrind library directory: /usr/lib/valgrind
+--5371-- Reading syms from /bin/dash
+--5371--    object doesn't have a symbol table
+--5371-- Reading syms from /lib/x86_64-linux-gnu/ld-2.23.so
+--5371--   Considering /lib/x86_64-linux-gnu/ld-2.23.so ..
+--5371--   .. CRC mismatch (computed d3da0723 wanted a1c29704)
+--5371--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/ld-2.23.so ..
+--5371--   .. CRC is valid
+--5371-- Reading syms from /usr/lib/valgrind/memcheck-amd64-linux
+--5371--   Considering /usr/lib/valgrind/memcheck-amd64-linux ..
+--5371--   .. CRC mismatch (computed 5529a2c7 wanted 5bd23904)
+--5371--    object doesn't have a symbol table
+--5371--    object doesn't have a dynamic symbol table
+--5371-- Scheduler: using generic scheduler lock implementation.
+--5371-- Reading suppressions file: /usr/lib/valgrind/default.supp
+==5371== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-5371-by-wilbert-on-???
+==5371== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-5371-by-wilbert-on-???
+==5371== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-5371-by-wilbert-on-???
+==5371== 
+==5371== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==5371== don't want to do, unless you know exactly what you're doing,
+==5371== or are doing some strange experiment):
+==5371==   /usr/lib/valgrind/../../bin/vgdb --pid=5371 ...command...
+==5371== 
+==5371== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==5371==   /path/to/gdb /usr/bin/which
+==5371== and then give GDB the following command
+==5371==   target remote | /usr/lib/valgrind/../../bin/vgdb --pid=5371
+==5371== --pid is optional if only one valgrind process is running
+==5371== 
+--5371-- REDIR: 0x401cdc0 (ld-linux-x86-64.so.2:strlen) redirected to 0x3809e181 (???)
+--5371-- Reading syms from /usr/lib/valgrind/vgpreload_core-amd64-linux.so
+--5371--   Considering /usr/lib/valgrind/vgpreload_core-amd64-linux.so ..
+--5371--   .. CRC mismatch (computed a30c8eaa wanted 7ae2fed4)
+--5371--    object doesn't have a symbol table
+--5371-- Reading syms from /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so
+--5371--   Considering /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so ..
+--5371--   .. CRC mismatch (computed 402c2ab5 wanted 745f25ae)
+--5371--    object doesn't have a symbol table
+==5371== WARNING: new redirection conflicts with existing -- ignoring it
+--5371--     old: 0x0401cdc0 (strlen              ) R-> (0000.0) 0x3809e181 ???
+--5371--     new: 0x0401cdc0 (strlen              ) R-> (2007.0) 0x04c31020 strlen
+--5371-- REDIR: 0x401b710 (ld-linux-x86-64.so.2:index) redirected to 0x4c30bc0 (index)
+--5371-- REDIR: 0x401b930 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c320d0 (strcmp)
+--5371-- REDIR: 0x401db20 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c35270 (mempcpy)
+--5371-- Reading syms from /lib/x86_64-linux-gnu/libc-2.23.so
+--5371--   Considering /lib/x86_64-linux-gnu/libc-2.23.so ..
+--5371--   .. CRC mismatch (computed 2adb2e50 wanted 9b73f606)
+--5371--   Considering /usr/lib/debug/lib/x86_64-linux-gnu/libc-2.23.so ..
+--5371--   .. CRC is valid
+--5371-- REDIR: 0x4ec8fd0 (libc.so.6:strcasecmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--5371-- REDIR: 0x4ec4850 (libc.so.6:strcspn) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--5371-- REDIR: 0x4ecb2c0 (libc.so.6:strncasecmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--5371-- REDIR: 0x4ec6cc0 (libc.so.6:strpbrk) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--5371-- REDIR: 0x4ec7050 (libc.so.6:strspn) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--5371-- REDIR: 0x4ec871b (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--5371-- REDIR: 0x4ec4730 (libc.so.6:strcpy) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--5371-- REDIR: 0x4ec8e20 (libc.so.6:stpcpy) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--5371-- REDIR: 0x4ec3050 (libc.so.6:index) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--5371-- REDIR: 0x4ec8180 (libc.so.6:bcmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--5371-- REDIR: 0x4ec32a0 (libc.so.6:strcmp) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--5371-- REDIR: 0x4ecd9c0 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--5371-- REDIR: 0x4ec8900 (libc.so.6:mempcpy) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--5371-- REDIR: 0x4ec7c00 (libc.so.6:strstr) redirected to 0x4a286f0 (_vgnU_ifunc_wrapper)
+--5371-- REDIR: 0x4ec69d0 (libc.so.6:rindex) redirected to 0x4c308a0 (rindex)
+--5371-- REDIR: 0x4ebd550 (libc.so.6:malloc) redirected to 0x4c2db20 (malloc)
+--5371-- REDIR: 0x4ecfd30 (libc.so.6:strchrnul) redirected to 0x4c34da0 (strchrnul)
+--5371-- REDIR: 0x4ec4cf0 (libc.so.6:strlen) redirected to 0x4c30f60 (strlen)
+--5371-- REDIR: 0x4f951c0 (libc.so.6:__mempcpy_ssse3_back) redirected to 0x4c34eb0 (mempcpy)
+--5371-- REDIR: 0x4ecda40 (libc.so.6:__GI_memcpy) redirected to 0x4c32b00 (__GI_memcpy)
+--5371-- REDIR: 0x4ed8b40 (libc.so.6:__strcmp_sse2_unaligned) redirected to 0x4c31f90 (strcmp)
+--5371-- REDIR: 0x4f83e20 (libc.so.6:__strcspn_sse42) redirected to 0x4c35610 (strcspn)
+--5371-- REDIR: 0x4f83f60 (libc.so.6:__strpbrk_sse42) redirected to 0x4c355b0 (strpbrk)
+--5371-- REDIR: 0x4ec3080 (libc.so.6:__GI_strchr) redirected to 0x4c30a00 (__GI_strchr)
+--5371-- REDIR: 0x4edefa0 (libc.so.6:__strcpy_sse2_unaligned) redirected to 0x4c31040 (strcpy)
+--5371-- REDIR: 0x4ebda70 (libc.so.6:free) redirected to 0x4c2ed80 (free)
+--5371-- REDIR: 0x4fa7c60 (libc.so.6:__memcmp_sse4_1) redirected to 0x4c33cd0 (__memcmp_sse4_1)
+--5371-- REDIR: 0x4ee05b0 (libc.so.6:__stpcpy_sse2_unaligned) redirected to 0x4c34120 (__stpcpy_sse2_unaligned)
+--5371-- REDIR: 0x4ed8df0 (libc.so.6:__memcpy_sse2_unaligned) redirected to 0x4c324a0 (memcpy@@GLIBC_2.14)
+--5371-- REDIR: 0x4ec7e30 (libc.so.6:memchr) redirected to 0x4c32170 (memchr)
+==5371== 
+==5371== HEAP SUMMARY:
+==5371==     in use at exit: 3,064 bytes in 95 blocks
+==5371==   total heap usage: 172 allocs, 77 frees, 17,801 bytes allocated
+==5371== 
+==5371== Searching for pointers to 95 not-freed blocks
+==5371== Checked 77,112 bytes
+==5371== 
+==5371== LEAK SUMMARY:
+==5371==    definitely lost: 0 bytes in 0 blocks
+==5371==    indirectly lost: 0 bytes in 0 blocks
+==5371==      possibly lost: 0 bytes in 0 blocks
+==5371==    still reachable: 3,064 bytes in 95 blocks
+==5371==         suppressed: 0 bytes in 0 blocks
+==5371== Reachable blocks (those to which a pointer was found) are not shown.
+==5371== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==5371== 
+==5371== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==5371== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
