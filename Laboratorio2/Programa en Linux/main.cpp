@@ -3,7 +3,7 @@
 #include <time.h> //--------->
 #include <sys/time.h> //----->Si desea medir el tiempo en linux.
 //#include <windows.h> //Comentar en caso desee medir tiempo en linux.
-#define MAX 1000
+#define MAX 100
 using namespace std;
 //-------------Tiempo en Linux----------------------
 double timeval_diff(struct timeval *a, struct timeval *b)
@@ -80,8 +80,8 @@ int main()
     double secs;
     gettimeofday(&t_ini, NULL);
     //QueryPerformanceCounter(&t_ini);
-    Mul(A,B,Res);
-    //MulBloq(A,B,Res);
+    //Mul(A,B,Res);
+    MulBloq(A,B,Res);
     //QueryPerformanceCounter(&t_fin);
     gettimeofday(&t_fin, NULL);
     secs = timeval_diff(&t_fin, &t_ini);
