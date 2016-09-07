@@ -56,8 +56,10 @@ int main(int argc, char **argv)
     MPI_Init(&argc, &argv);
     MPI_Comm_size(MPI_COMM_WORLD, &comm_sz);
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
-    int filas=8142;
-	int columnas=8142;
+    int filas=4096;
+	int columnas=4096;
+	MPI_Barrier(MPI_COMM_WORLD);
+	start_time = MPI_Wtime();
 	Matriz=malloc(filas*columnas*sizeof(double));
     Vector=malloc(columnas*sizeof(double));
     Resultados=malloc(filas*sizeof(double));
@@ -107,8 +109,6 @@ int main(int argc, char **argv)
 	}
 	free(Matriz);
 	free(Vector);
-	MPI_Barrier(MPI_COMM_WORLD);
-	start_time = MPI_Wtime();
 	Mat_vect_mult(MiMat,MiVec,Resultado,finM-inicioM+1,columnas,finV-inicioV+1);
 	MPI_Allgather(Resultado,finM-inicioM+1,MPI_DOUBLE,Resultados,finM-inicioM+1,MPI_DOUBLE,MPI_COMM_WORLD);
 	MPI_Barrier(MPI_COMM_WORLD); 
