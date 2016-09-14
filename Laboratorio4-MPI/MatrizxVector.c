@@ -58,8 +58,6 @@ int main(int argc, char **argv)
     MPI_Comm_rank(MPI_COMM_WORLD, &my_rank);
     int filas=4096;
 	int columnas=4096;
-	MPI_Barrier(MPI_COMM_WORLD);
-	start_time = MPI_Wtime();
 	Matriz=malloc(filas*columnas*sizeof(double));
     Vector=malloc(columnas*sizeof(double));
     Resultados=malloc(filas*sizeof(double));
@@ -109,10 +107,12 @@ int main(int argc, char **argv)
 	}
 	free(Matriz);
 	free(Vector);
+	MPI_Barrier(MPI_COMM_WORLD);
+	start_time = MPI_Wtime();
 	Mat_vect_mult(MiMat,MiVec,Resultado,finM-inicioM+1,columnas,finV-inicioV+1);
-	MPI_Allgather(Resultado,finM-inicioM+1,MPI_DOUBLE,Resultados,finM-inicioM+1,MPI_DOUBLE,MPI_COMM_WORLD);
 	MPI_Barrier(MPI_COMM_WORLD); 
 	end_time= MPI_Wtime();
+	MPI_Allgather(Resultado,finM-inicioM+1,MPI_DOUBLE,Resultados,finM-inicioM+1,MPI_DOUBLE,MPI_COMM_WORLD);
 	printf("Codigo se ejecuto en %f segundos\n",end_time - start_time);
     free(Resultados);
     MPI_Finalize();
