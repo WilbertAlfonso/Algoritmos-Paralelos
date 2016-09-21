@@ -20,8 +20,8 @@ struct list_node_s
 int thread_count;
 struct list_node_s** head_pp;
 pthread_mutex_t mutex;
-pthread_mutex_t mutex2;
 pthread_mutex_t head_p_mutex;
+pthread_rwlock_t  rwlock;
 
 int MemberP(int value)
 {
@@ -127,10 +127,14 @@ void* LLamarFunc(void* rango)
 {
 	long mi_rango=(long) rango;
 	printf("Soy el thread %ld\n",mi_rango);
-	pthread_mutex_lock(&mutex);
+	//pthread_mutex_lock(&mutex);
+	pthread_rwlock_wrlock(&rwlock);
 	Insert((int)mi_rango);
-	pthread_mutex_unlock(&mutex);
-	int numero=MemberP((int)mi_rango);
+	pthread_rwlock_unlock(&rwlock);
+	//pthread_mutex_unlock(&mutex);
+	pthread_rwlock_rdlock(&rwlock);
+	int numero=Member((int)mi_rango);
+	pthread_rwlock_unlock(&rwlock);
 	printf("Mi numero %d\n",numero);
 	return NULL;
 }
